@@ -1,6 +1,6 @@
 ---
 - name: BIG-IP SETUP
-  hosts: lb
+  hosts: F5_BIGIP
   connection: local
   gather_facts: false
   
