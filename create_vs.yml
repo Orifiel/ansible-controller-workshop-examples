@@ -1,7 +1,7 @@
 ---
 - name: BIG-IP SETUP
   hosts: lb
-  connection: local
+  #connection: local
   gather_facts: false
   
   collections:
