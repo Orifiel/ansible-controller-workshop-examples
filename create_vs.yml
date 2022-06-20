@@ -1,7 +1,7 @@
 ---
 - name: BIG-IP SETUP
   hosts: F5_BIGIP
-  #connection: local
+  connection: local
   gather_facts: false
   
   collections:
