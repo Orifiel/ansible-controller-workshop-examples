@@ -1,7 +1,7 @@
 ---
 - name: BIG-IP SETUP
   hosts: F5_BIGIP
-  connection: local
+  #connection: local
   gather_facts: false
   
   collections:
@@ -21,6 +21,8 @@
         host: "{{hostvars[item].ansible_host}}"
         name: "{{hostvars[item].inventory_hostname}}"
       loop: "{{ groups['web'] }}"
+      debug:
+        msg: "{{hostvars[item].ansible_host}} e {{hostvars[item].inventory_hostname}} "
 
     - name: CREATE POOL
       bigip_pool:
