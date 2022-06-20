@@ -21,7 +21,7 @@
       bigip_virtual_server:
         provider: "{{provider}}"
         name: "vip"
-        partition: Common
+        #partition: Common
         state: absent
   
     - name: DELETE POOL
