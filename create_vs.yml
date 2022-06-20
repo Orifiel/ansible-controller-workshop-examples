@@ -13,6 +13,7 @@
        provider:
         server: "172.16.70.103"
         server_port: "443"
+        password: "4NSIbL3"
         validate_certs: "False"
   
     - name: CREATE NODES
