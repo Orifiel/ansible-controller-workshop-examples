@@ -1,7 +1,7 @@
 ---
 - name: BIG-IP SETUP
   hosts: lb
-  #connection: local
+  connection: local
   gather_facts: false
   
   collections:
@@ -12,8 +12,9 @@
       set_fact:
        provider:
         server: "172.16.70.103"
+        user: "{{ansible_user}}"
+        password: "{{ansible_ssh_pass}}"
         server_port: "443"
-        password:
         validate_certs: "False"
   
     - name: CREATE NODES
