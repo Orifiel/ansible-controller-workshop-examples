@@ -20,7 +20,7 @@
         provider: "{{provider}}"
         host: "{{hostvars[item].ansible_host}}"
         name: "{{hostvars[item].inventory_hostname}}"
-      loop: "{{ rhel01, rhel02 }}"
+      loop: "{{ groups['web'] }}"
 
     - name: CREATE POOL
       bigip_pool:
