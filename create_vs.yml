@@ -23,7 +23,7 @@
       loop: "{{ groups['web'] }}"
       debug:
         msg: 
-        - "{{hostvars[item].ansible_host}} e {{hostvars[item].inventory_hostname}} "
+        - {{hostvars[item].ansible_host}}{{hostvars[item].inventory_hostname}}
 
     - name: CREATE POOL
       bigip_pool:
