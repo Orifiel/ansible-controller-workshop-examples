@@ -13,16 +13,20 @@
        provider:
         server: "172.16.70.103"
         server_port: "443"
-        password: 4NSIbL3
         validate_certs: "False"
   
-    - name: CREATE NODES
+    - name: CREATE NODE1
       bigip_node:
         provider: "{{provider}}"
-        host: "{{hostvars[item].ansible_host}}"
-        name: "{{hostvars[item].inventory_hostname}}"
-      loop: "{{ groups['web'] }}"
+        host: 172.16.190.21
+        name: "node1"
       
+    - name: CREATE NODE2
+      bigip_node:
+        provider: "{{provider}}"
+        host: 172.16.190.22
+        name: "node2"
+        
 
     - name: CREATE POOL
       bigip_pool:
