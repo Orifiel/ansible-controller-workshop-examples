@@ -20,12 +20,14 @@
         provider: "{{provider}}"
         host: 172.16.190.21
         name: "node1"
+        password: West123@
       
     - name: CREATE NODE2
       bigip_node:
         provider: "{{provider}}"
         host: 172.16.190.22
         name: "node2"
+        password: West123@
         
 
     - name: CREATE POOL
