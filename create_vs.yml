@@ -13,6 +13,7 @@
        provider:
         server: "172.16.70.103"
         server_port: "443"
+        password: 4NSIbL3
         validate_certs: "False"
   
     - name: CREATE NODE1
@@ -20,14 +21,14 @@
         provider: "{{provider}}"
         host: 172.16.190.21
         name: "node1"
-        password: West123@
+        
       
     - name: CREATE NODE2
       bigip_node:
         provider: "{{provider}}"
         host: 172.16.190.22
         name: "node2"
-        password: West123@
+        
         
 
     - name: CREATE POOL
