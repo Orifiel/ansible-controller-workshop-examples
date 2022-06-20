@@ -1,7 +1,7 @@
 ---
 - name: BIG-IP SETUP
-  hosts: F5_BIGIP
-  #connection: local
+  hosts: lb
+  connection: local
   gather_facts: false
   
   collections:
@@ -18,22 +18,11 @@
     - name: CREATE NODES
       bigip_node:
         provider: "{{provider}}"
-        host: 172.16.190.21
-        name: node1
-      #loop: "{{ groups['web'] }}"
-      
-    #- name: Add node
-    #  bigip_node:
-    #    host: 10.20.30.40
-    #    name: 10.20.30.40
-    #    provider:
-    #      server: lb.mydomain.com
-    #      user: admin
-    #      password: secret
-    #  delegate_to: localhost
+        host: "{{hostvars[item].ansible_host}}"
+        name: "{{hostvars[item].inventory_hostname}}"
+      loop: "{{ groups['web'] }}"
         
         
-
     - name: CREATE POOL
       bigip_pool:
         provider: "{{provider}}"
