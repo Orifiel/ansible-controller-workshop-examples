@@ -1,7 +1,7 @@
 ---
 - name: BIG-IP SETUP
   hosts: F5_BIGIP
-  connection: local
+  #connection: local
   gather_facts: false
   
   collections:
@@ -11,8 +11,8 @@
     - name: Setting up provider values
       set_fact:
        provider:
-        server: "{{private_ip}}"
-        server_port: "8443"
+        server: "172.16.70.103"
+        server_port: "443"
         validate_certs: "False"
   
     - name: CREATE NODES
