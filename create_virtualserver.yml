@@ -11,8 +11,10 @@
     - name: Setting up provider values
       set_fact:
        provider:
-        server: "{{private_ip}}"
-        server_port: "8443"
+        server: "{{ansible_host}}"
+        user: "{{ansible_user}}"
+        password: "{{ansible_ssh_pass}}"
+        server_port: "{{port}}"
         validate_certs: "False"
   
     - name: ADD VIRTUAL SERVER
@@ -28,4 +30,4 @@
 
     - name: PRINT OUT WEB VIP FOR F5
       debug:
-        msg: "The VIP (Virtual IP) is https://{{ansible_host}}"
+        msg: "The VIP (Virtual IP) is https://{{private_ip}}"
