@@ -17,18 +17,24 @@
         server_port: "443"
         validate_certs: "False"
   
-    - name: CREATE NODES1
-      bigip_node:
-        provider: "{{provider}}"
-        host: "172.16.73.41"
-        name: "node1"
+  #  - name: CREATE NODES1
+  #    bigip_node:
+  #      provider: "{{provider}}"
+  #      host: "172.16.73.41"
+  #      name: "node1"
       
-    - name: CREATE NODES2
+  #  - name: CREATE NODES2
+  #    bigip_node:
+  #      provider: "{{provider}}"
+  #      host: "172.16.73.42"
+  #      name: "node2"  
+  
+    - name: CREATE NODES
       bigip_node:
         provider: "{{provider}}"
-        host: "172.16.73.42"
-        name: "node2"  
-        
+        host: "{{hostvars[item].ansible_host}}"
+        name: "{{hostvars[item].inventory_hostname}}"
+      loop: "{{ groups['web'] }}"   
         
     - name: CREATE POOL
       bigip_pool:
